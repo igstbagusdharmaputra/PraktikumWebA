@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form name="form-nilai">
+            <input type="text" name="text-nilai" disabled>
+        </form>
+        <table>
+            <tr>
+                <td><input type="submit" class="tombol" value="√" onclick="SR('r')" id="r" disabled></td>
+                <td><input type="submit" class="tombol" value="X²" onclick="SR('s')" id="s" disabled></td>
+                <td><input type="submit" class="tombol" value="<=" onclick="back()"></td>
+                <td><input type="submit" class="tombol" value="=" onclick="equalto()"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" class="tombol" value="7" onclick="buatangka(7)"></td>
+                <td><input type="submit" class="tombol" value="8" onclick="buatangka(8)"></td>
+                <td><input type="submit" class="tombol" value="9" onclick="buatangka(9)"></td>
+                <td><input type="submit" class="tombol" value="/" onclick="buatoperator('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" class="tombol" value="4" onclick="buatangka(4)"></td>
+                <td><input type="submit" class="tombol" value="5" onclick="buatangka(5)"></td>
+                <td><input type="submit" class="tombol" value="6" onclick="buatangka(6)"></td>
+                <td><input type="submit" class="tombol" value="x" onclick="buatoperator('x')"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" class="tombol" value="1" onclick="buatangka(1)"></td>
+                <td><input type="submit" class="tombol" value="2" onclick="buatangka(2)"></td>
+                <td><input type="submit" class="tombol" value="3" onclick="buatangka(3)"></td>
+                <td><input type="submit" class="tombol" value="+" onclick="buatoperator('+')"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" class="tombol" value="C" onclick="clean()"></td>
+                <td><input type="submit" class="tombol" value="0"></td>
+                <td><input type="submit" class="tombol" value="." onclick="buatdecimal()"></td>
+                <td><input type="submit" class="tombol" value="-" onclick="buatoperator('-')"></td>
+            </tr>
+            
+        </table>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
