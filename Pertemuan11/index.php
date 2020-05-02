@@ -84,6 +84,7 @@
         if($q!="" AND $column!=""){
             $tampil = $perpus->filter($q,$column);
         }
+        
     }
     while($data = $tampil->fetch_object()){
   ?>
