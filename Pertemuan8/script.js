@@ -3,7 +3,7 @@ $(function () {
       // tambah list
       $("#todo-items").append('<li><span> <input type="checkbox" id="chck">' + $("#todo").val() + '</span> <small><a href="#edit">Edit</a> &bull; <a href="#delete">Delete</a></small></li>');
       // clear text
-
+        $("#todo").val("");
       //cek box
       $("input:checkbox").click(function () {
         var $this = $(this);
@@ -13,7 +13,7 @@ $(function () {
             $this.parent().removeClass('completed');
         }
     });
-      $("#todo").val("");
+      
     }
     $("#todo").keydown(function (e) {
       // tekan enter
