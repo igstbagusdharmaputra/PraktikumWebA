@@ -6,7 +6,7 @@
       }
     }
     else{
-      header('Location: admin.php');
+      header('Location: index.php');
     }
   
 ?>
