@@ -19,6 +19,9 @@ if(isset($_POST['login'])){
                 header('Location: petugas.php');
             }
         }
+    }else{
+        echo"<script>alert('Username atau password salah');document.location.href='index.php'</script>";
+      
     }
     
 }
