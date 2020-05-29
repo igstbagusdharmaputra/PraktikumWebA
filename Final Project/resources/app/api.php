@@ -42,7 +42,7 @@ if($mods=="login"){
     }
 }
 else if ($mods == "dashboard"){
-    if(isset($_SESSION['is_logged'])){
+    if(isset($_SESSION['is_logged']) && !hasPermit('cek_status')){
         $user  = mysqli_num_rows(execute("SELECT * FROM tb_users"));
         $html = ' 
             <div class="col-lg-4 col-xs-12">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Bulan Mei 2020 pada 11.13
+-- Waktu pembuatan: 30 Bulan Mei 2020 pada 00.46
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.6
 
@@ -46,8 +46,10 @@ CREATE TABLE `tb_buku` (
 --
 
 INSERT INTO `tb_buku` (`id_buku`, `id_kategori`, `id_pengarang`, `id_penerbit`, `id_rak`, `judul_buku`, `gambar_buku`, `tahun_buku`, `stok_buku`, `created_at`, `updated_at`) VALUES
-('BK/2020/00001', 1, 50, 70, 3, 'Jaringan Komputer', '5ece2a1a7bea3.jpg', 2020, 10, '2020-05-27 01:23:02', '2020-05-29 17:09:51'),
-('BK/2020/00002', 1, 1, 9, 3, 'Rekayasa Perangkat Lunak', '5ecde4f21035d.jpg', 2014, 10, '2020-05-28 19:58:56', '2020-05-29 17:09:51');
+('BK/2020/00001', 1, 50, 70, 3, 'Jaringan Komputer', '5ece2a1a7bea3.jpg', 2020, 24, '2020-05-27 01:23:02', '2020-05-29 17:30:38'),
+('BK/2020/00002', 1, 1, 9, 3, 'Rekayasa Perangkat Lunak', '5ed18b6f33369.png', 2014, 24, '2020-05-28 19:58:56', '2020-05-30 06:23:43'),
+('BK/2020/00003', 79, 2, 11, 3, 'Segala-galanya Ambyar', '5ed18b976933c.jpg', 2020, 20, '2020-05-30 06:24:23', '2020-05-30 06:24:23'),
+('BK/2020/00004', 1, 4, 13, 2, 'Mengupas Rahasia Tersembunyi Ms Office', '5ed18c0ca50b2.png', 2020, 20, '2020-05-30 06:26:20', '2020-05-30 06:26:20');
 
 -- --------------------------------------------------------
 
@@ -98,7 +100,8 @@ CREATE TABLE `tb_peminjaman` (
 --
 
 INSERT INTO `tb_peminjaman` (`id_peminjaman`, `id_user`, `status`, `due_date`, `created_at`, `updated_at`) VALUES
-('TRK/2020/00001', 14, '1', '2020-05-30 09:01:00', '2020-05-29 09:01:42', '2020-05-29 17:01:48');
+('TRK/2020/00001', 14, '1', '2020-05-29 09:29:00', '2020-05-29 09:29:56', '2020-05-29 17:30:00'),
+('TRK/2020/00002', 14, '1', '2020-05-30 09:30:00', '2020-05-29 09:30:16', '2020-05-29 17:30:26');
 
 -- --------------------------------------------------------
 
@@ -120,8 +123,10 @@ CREATE TABLE `tb_peminjaman_detail` (
 --
 
 INSERT INTO `tb_peminjaman_detail` (`id_peminjaman_detail`, `id_peminjaman`, `id_buku`, `amount`, `created_at`, `updated_at`) VALUES
-(40, 'TRK/2020/00001', 'BK/2020/00002', 1, '2020-05-29 17:01:42', '2020-05-29 17:01:42'),
-(41, 'TRK/2020/00001', 'BK/2020/00001', 1, '2020-05-29 17:01:42', '2020-05-29 17:01:42');
+(56, 'TRK/2020/00001', 'BK/2020/00002', 1, '2020-05-29 17:29:56', '2020-05-29 17:29:56'),
+(57, 'TRK/2020/00001', 'BK/2020/00001', 1, '2020-05-29 17:29:56', '2020-05-29 17:29:56'),
+(58, 'TRK/2020/00002', 'BK/2020/00002', 24, '2020-05-29 17:30:16', '2020-05-29 17:30:16'),
+(59, 'TRK/2020/00002', 'BK/2020/00001', 24, '2020-05-29 17:30:16', '2020-05-29 17:30:16');
 
 -- --------------------------------------------------------
 
@@ -187,6 +192,14 @@ CREATE TABLE `tb_pengembalian` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data untuk tabel `tb_pengembalian`
+--
+
+INSERT INTO `tb_pengembalian` (`id_pengembalian`, `id_peminjaman`, `tanggal_kembali`, `ketepatan`, `created_at`, `updated_at`) VALUES
+(60, 'TRK/2020/00001', '2020-05-29', '0', '2020-05-29 09:30:04', '2020-05-29 09:30:04'),
+(61, 'TRK/2020/00002', '2020-05-29', '1', '2020-05-29 09:30:38', '2020-05-29 09:30:38');
 
 -- --------------------------------------------------------
 
@@ -362,7 +375,8 @@ INSERT INTO `tb_rule_permission` (`id_rule`, `id_permission`) VALUES
 (2, 41),
 (2, 42),
 (2, 43),
-(2, 44);
+(2, 44),
+(1, 26);
 
 -- --------------------------------------------------------
 
@@ -395,7 +409,6 @@ INSERT INTO `tb_users` (`id_user`, `id_rule`, `name`, `username`, `password`, `s
 (17, 1, 'made user', 'madeuser', 'c6a4a198cbdeb7f168f6e8773b667e48', '1', '2020-05-26 12:25:24', '2020-05-26 12:25:24'),
 (18, 3, 'Dharma Putra', 'bagusdharma', '9f2d05cd35d79641be54b3046e2e759c', '1', '2020-05-27 08:27:50', '2020-05-27 08:27:50'),
 (19, 3, 'userbiasa', 'userbiasa', '5ce18dd788da69615cf285d404daa225', '1', '2020-05-27 13:06:36', '2020-05-27 13:06:36'),
-(20, 3, 'pengguna', 'pengguna1', '750d66e99a19b9ba1463a16d2a55b400', '1', '2020-05-27 13:18:48', '2020-05-27 13:18:48'),
 (21, 3, 'dharmauser', 'dharmauser', 'b8b15a84106d2478b5ba7b6e28bda25c', '1', '2020-05-29 04:59:42', '2020-05-29 04:59:42');
 
 --
@@ -499,7 +512,7 @@ ALTER TABLE `tb_kategori`
 -- AUTO_INCREMENT untuk tabel `tb_peminjaman_detail`
 --
 ALTER TABLE `tb_peminjaman_detail`
-  MODIFY `id_peminjaman_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_peminjaman_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_penerbit`
@@ -517,7 +530,7 @@ ALTER TABLE `tb_pengarang`
 -- AUTO_INCREMENT untuk tabel `tb_pengembalian`
 --
 ALTER TABLE `tb_pengembalian`
-  MODIFY `id_pengembalian` int(50) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_pengembalian` int(50) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_permissions`

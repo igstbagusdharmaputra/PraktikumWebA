@@ -140,4 +140,14 @@ return $route = array(
             
         )
     ),
+    'data-home' => array(
+        'remote' => ('table-home'),
+        'crud' => array(
+            ('read_home'),
+            ('detail_home'),
+            ('add_cart'),
+            ('search_home'),
+            ('more_home'),
+        )
+    ),
 );

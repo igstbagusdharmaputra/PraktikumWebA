@@ -36,23 +36,11 @@
             <div class="callout callout-info">
                 <h4 class="text-center">Selamat Datang Di Sistem Informasi Perpustakaan</h4>
             </div>
-            <div class="box box-info">
-                <div class="box-body">
-                    <div class="col-md-12 col-xs-12">
-                        <div class="pull-right">
-                            <form method="POST" id="form-cari" class="form-inline" data-remote="<?= base64_encode($enc['data-shopping']['remote'])?>" data-target="<?= base64_encode($enc['data-shopping']['sha1'][3])?>">
-                                <div class="input-group">
-                                    <input type="text" id="cari" name="cari" class="form-control" placeholder="Cari" title="Masukkan nama sparepart yang ingin dibeli" required>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!-- Items -->
-            <div id="list_shopping" data-remote="<?= base64_encode($enc['data-shopping']['remote']); ?>" data-target="<?= base64_encode($enc['data-shopping']['sha1'][0]); ?>">
+            <div id="list_home" data-remote="<?= ($route['data-home']['remote']); ?>" data-target="<?= ($route['data-home']['crud'][0]); ?>">
                 <div id="items"></div>
-                <div class="text-center" id="box-load" style="display: none;" data-target="<?= base64_encode($enc['data-shopping']['sha1'][4]); ?>">
+                <div class="text-center" id="box-load" style="display: none;" data-target="<?= ($route['data-home']['crud'][4]); ?>">
                     <button id="loadmore" name="loadmore" type="button" class="btn btn-warning" title="Klik tombol load more untuk menampilkan data selanjutnya">Muat Lebih</button>
                 </div>
                 <div class="text-center" id="msg-empty" style="display: none;">
@@ -70,7 +58,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3 class="modal-title text-center">Detail Data Peralatan</h3>
+                <h3 class="modal-title text-center">Detail Data Buku</h3>
             </div>
             <div class="modal-body">
                 <table class="table table-bordered table-striped table-hover">

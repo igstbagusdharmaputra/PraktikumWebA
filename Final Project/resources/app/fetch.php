@@ -1591,6 +1591,7 @@ if (isset($_SESSION['is_logged'])) {
         );
       }
     }
+    
     // //check username register
     // else if ($rt == $route['data-user']['remote'] && $dst == $route['data-user']['check'][2] && isset($_GET['username'])){
     //   $username = cek($_GET['username']);
